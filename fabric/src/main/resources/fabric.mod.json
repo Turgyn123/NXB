@@ -16,10 +16,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.narutoxboruto.fabric.ExampleModFabric"
+      "net.narutoxboruto.fabric.FabricMain"
     ],
     "client": [
-      "net.narutoxboruto.fabric.client.ExampleModFabricClient"
+      "net.narutoxboruto.fabric.client.FabricClient"
     ]
   },
   "mixins": [
