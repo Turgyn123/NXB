@@ -1,0 +1,18 @@
+# Ignore Gradle and build related files
+.gradle/
+.idea/
+
+# Ignore common module build artifacts
+common/.gradle/
+common/build/
+common/common.iml
+
+# Ignore fabric module build artifacts
+fabric/.gradle/
+fabric/build/
+fabric/fabric.iml
+
+# Ignore neoforge module build artifacts
+neoforge/.gradle/
+neoforge/build/
+neoforge/neoforge.iml
