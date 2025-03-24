@@ -4,33 +4,31 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.narutoxboruto.Main;
 
 import java.util.function.Supplier;
 
-public class ModItems {
-
+public class ModItems
+{
+    // Register all items using DeferredRegister
     public static final DeferredRegister<Item> MOD_ITEMS = DeferredRegister.create(Main.MOD_ID, Registries.ITEM);
 
-    private static Item.Properties properties() {
-        return new Item.Properties();
-    }
-
-    // Register all items
-    public static void register() {
-        MOD_ITEMS.register();
-    }
+    // Supplier for generic items
+    private static final Supplier<Item> GENERIC_ITEMS_SUPPLIER =
+            () -> new Item(new Item.Properties()
+                    .stacksTo(64)   // Stack size to 64
+                    .rarity(Rarity.COMMON));    // Item rarity
 
     // Item declarations
-    public static final RegistrySupplier<Item> KUNAI;
+    public static final RegistrySupplier<Item> KUNAI = registerGenericItem("kunai", GENERIC_ITEMS_SUPPLIER);
 
-    static {
-        //Throwables
-        KUNAI = registerGenericItem("kunai", () -> new Item(properties()));
-    }
+    // Register method to initialize items
+    public static void register() { MOD_ITEMS.register(); }
 
     // Helper method to register items easily
-    private static RegistrySupplier<Item> registerGenericItem(String name, Supplier<Item> itemSupplier) {
-        return MOD_ITEMS.register(name, itemSupplier);
+    private static RegistrySupplier<Item> registerGenericItem(String name, Supplier<? extends Item> supplier)
+    {
+        return MOD_ITEMS.register(name, supplier);
     }
 }

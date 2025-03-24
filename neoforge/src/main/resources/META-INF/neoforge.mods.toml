@@ -1,15 +1,21 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "All Rights Reserved"
 
 [[mods]]
 modId = "narutoxboruto"
 version = "${version}"
 displayName = "Naruto X Boruto"
-authors = "Me!"
+authors = "Turgyn, Lusito"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Step into the world of ninjas with the Naruto x Boruto mod for Minecraft!
+
+Transform your gameplay with iconic jutsus, legendary weapons, and beloved characters from the Naruto universe.
+Train in the ninja arts, unlock powerful abilities, and embark on epic quests to protect your village.
+Whether you want to master the Sharingan or raid massive creatures, like Shukaku, this mod lets you live out your wildest ninja dreams.
+
+From the Leaf Village to the depths of the Hidden Sand, build, battle and become a true shinobi in this Naruto adventure.
 '''
 #logoFile = ""
 
