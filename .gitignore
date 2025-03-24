@@ -2,17 +2,20 @@
 .gradle/
 .idea/
 
-# Ignore common module build artifacts
+# Ignore common module build artifacts and run directory
 common/.gradle/
 common/build/
+common/run/
 common/common.iml
 
-# Ignore fabric module build artifacts
+# Ignore fabric module build artifacts and run directory
 fabric/.gradle/
 fabric/build/
+fabric/run/
 fabric/fabric.iml
 
-# Ignore neoforge module build artifacts
+# Ignore neoforge module build artifacts and run directory
 neoforge/.gradle/
 neoforge/build/
+neoforge/run/
 neoforge/neoforge.iml
