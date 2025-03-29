@@ -1,13 +1,16 @@
 package net.narutoxboruto.items.throwables;
 
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
-public class AbstractThrowableWeapon extends ThrowableProjectile {
+public class AbstractThrowableWeapon extends AbstractArrow {
 
     private int age;
     float rotation;
@@ -16,20 +19,17 @@ public class AbstractThrowableWeapon extends ThrowableProjectile {
         super(pEntityType, pLevel);
     }
 
-    public AbstractThrowableWeapon(EntityType<? extends AbstractThrowableWeapon> pEntityType, LivingEntity pShooter, Level pLevel) {
-        super(pEntityType, pShooter, pLevel);
-    }
-
-    public AbstractThrowableWeapon(EntityType<? extends AbstractThrowableWeapon> pEntityType, Level pLevel, double pX, double pY, double pZ) {
-        super(pEntityType, pX, pY, pZ, pLevel);
-    }
-
     public ItemStack getItem() {
         return null;
     }
 
     protected ItemStack getPickupItem() {
         return getItem();
+    }
+
+    @Override
+    protected ItemStack getDefaultPickupItem() {
+        return null;
     }
 
     @Override
@@ -47,4 +47,40 @@ public class AbstractThrowableWeapon extends ThrowableProjectile {
     public int getAge() {
         return age;
     }
+
+    protected boolean fumaSpin(){
+        return true;
+    }
+    public float getFumaSpin(float pPartialTicks){
+        if (!inGround && fumaSpin()) {
+            this.rotation = (this.getAge() + pPartialTicks)/3;
+        }
+        if (fumaSpin()) {
+            this.inGround = false;
+        }
+        return this.rotation;
+    }
+    // to let the shurkin spin
+    protected boolean shouldSpin() {
+        return true;
+    }
+
+    public float getSpin(float pPartialTicks) {
+        if (!inGround && shouldSpin()) {
+            this.rotation = (this.getAge() + pPartialTicks)/3;
+        }
+        return this.rotation;
+    }
+
+
+ //  @Override
+ //  protected void onHitEntity(EntityHitResult pResult) {
+ //      if (getOwner() != null && getOwner() instanceof ServerPlayer serverPlayer) {
+ //          serverPlayer.getCapability(StatCapabilityProvider.SHURIKENJUTSU).ifPresent((shurikenjutsu -> {
+ //              shurikenjutsu.incrementValue(1, serverPlayer);
+ //          }));
+ //      }
+ //      super.onHitEntity(pResult);
+
+ //  }
 }

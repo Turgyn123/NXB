@@ -1,7 +1,6 @@
 package net.narutoxboruto.items.throwables;
 
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.narutoxboruto.entities.ModEntities;
@@ -13,8 +12,8 @@ public class Kunai extends AbstractThrowableWeapon {
         super(pEntityType, pLevel);
     }
 
-    public Kunai(Level pLevel, LivingEntity pShooter) {
-        super(ModEntities.KUNAI.get(), pShooter, pLevel);
+    public Kunai(Level pLevel) {
+        super(ModEntities.KUNAI.get(), pLevel);
     }
 
     public double getBaseDamage() {
