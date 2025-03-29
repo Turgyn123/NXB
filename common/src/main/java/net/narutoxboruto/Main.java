@@ -1,5 +1,6 @@
 package net.narutoxboruto;
 
+import net.narutoxboruto.entities.ModEntities;
 import net.narutoxboruto.items.ModItems;
 import net.narutoxboruto.items.ModTab;
 
@@ -19,5 +20,8 @@ public final class Main
 
         // Register the custom creative tab.
         ModTab.register();
+
+        // Register the Entities
+         ModEntities.register();
     }
 }
