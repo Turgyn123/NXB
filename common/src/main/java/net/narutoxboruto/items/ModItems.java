@@ -6,6 +6,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.narutoxboruto.Main;
+import net.narutoxboruto.items.throwables.Kunai;
+import net.narutoxboruto.items.throwables.ThrowableWeaponItem;
 
 import java.util.function.Supplier;
 
@@ -21,7 +23,9 @@ public class ModItems
                     .rarity(Rarity.COMMON));    // Item rarity
 
     // Item declarations
-    public static final RegistrySupplier<Item> KUNAI = registerGenericItem("kunai", GENERIC_ITEMS_SUPPLIER);
+    public static final RegistrySupplier<Item> KUNAI = MOD_ITEMS.register("kunai", () ->
+            new ThrowableWeaponItem(new Item.Properties().stacksTo(16), "kunai")
+    );
 
     // Register method to initialize items
     public static void register() { MOD_ITEMS.register(); }

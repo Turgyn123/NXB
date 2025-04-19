@@ -24,7 +24,7 @@ public class ModTab
     public static final RegistrySupplier<CreativeModeTab> NARUTO_TAB = TABS.register("main_tab",
             () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)  // Tab placement: top row, first position.
                     .title(Component.translatable("itemGroup.narutoxboruto.main_tab"))  // Tab name.
-                    .icon(() -> new ItemStack(ModItems.KUNAI.get()))  // Tab icon - Kunai
+                    .icon(() -> new ItemStack(ModItems.KUNAI.get()))  // Tab icon - KunaiItem
                     .displayItems(MAIN_TAB_ITEMS)  // Tab items.
                     .build()
     );
