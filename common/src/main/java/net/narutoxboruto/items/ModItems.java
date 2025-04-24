@@ -6,7 +6,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.narutoxboruto.Main;
-import net.narutoxboruto.items.throwables.Kunai;
 import net.narutoxboruto.items.throwables.ThrowableWeaponItem;
 
 import java.util.function.Supplier;

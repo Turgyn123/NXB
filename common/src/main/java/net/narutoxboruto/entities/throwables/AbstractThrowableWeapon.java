@@ -1,4 +1,4 @@
-package net.narutoxboruto.items.throwables;
+package net.narutoxboruto.entities.throwables;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
 public abstract class AbstractThrowableWeapon extends AbstractArrow {
     private int age;
@@ -81,12 +82,12 @@ public abstract class AbstractThrowableWeapon extends AbstractArrow {
         return this.rotation;
     }
 
-  //  @Override
-  //  protected void onHitEntity(EntityHitResult result) {
-  //      if (this.getOwner() instanceof ServerPlayer serverPlayer) {
-  //          serverPlayer.getCapability(StatCapabilityProvider.SHURIKENJUTSU).ifPresent(cap -> cap.incrementValue(1, serverPlayer));
-  //      }
-  //      super.onHitEntity(result);
-  //  }
+    @Override
+    protected void onHitEntity(EntityHitResult result) {
+        //  if (this.getOwner() instanceof ServerPlayer serverPlayer) {
+            //      serverPlayer.getCapability(StatCapabilityProvider.SHURIKENJUTSU).ifPresent(cap -> cap.incrementValue(1, serverPlayer));
+            //  }
+        super.onHitEntity(result);
+    }
 }
 

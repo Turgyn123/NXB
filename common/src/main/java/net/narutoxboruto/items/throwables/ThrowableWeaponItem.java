@@ -12,6 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.narutoxboruto.entities.throwables.AbstractThrowableWeapon;
+import net.narutoxboruto.entities.throwables.Kunai;
 import net.narutoxboruto.items.PreventSlow;
 
 import java.util.concurrent.atomic.AtomicInteger;

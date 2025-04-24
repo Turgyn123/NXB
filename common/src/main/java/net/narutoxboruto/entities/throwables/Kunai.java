@@ -1,4 +1,4 @@
-package net.narutoxboruto.items.throwables;
+package net.narutoxboruto.entities.throwables;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;

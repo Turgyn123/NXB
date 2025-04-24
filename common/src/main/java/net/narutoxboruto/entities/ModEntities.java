@@ -7,7 +7,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.narutoxboruto.Main;
-import net.narutoxboruto.items.throwables.Kunai;
+import net.narutoxboruto.entities.throwables.Kunai;
 
 public class ModEntities {
 

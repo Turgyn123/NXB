@@ -1,11 +1,14 @@
 {
   "required": true,
   "package": "net.narutoxboruto.mixin",
+  "refmap": "narutoxboruto.mixins.refmap.json",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
+    "MixinPlayerModel"
   ],
   "mixins": [
+    "MixinPlayerModel"
   ],
   "injectors": {
     "defaultRequire": 1

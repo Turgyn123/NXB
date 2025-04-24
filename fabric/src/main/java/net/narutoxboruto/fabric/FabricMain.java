@@ -3,6 +3,7 @@ package net.narutoxboruto.fabric;
 import net.fabricmc.api.ModInitializer;
 
 import net.narutoxboruto.Main;
+import net.narutoxboruto.fabric.client.FabricClient;
 
 public final class FabricMain implements ModInitializer {
     @Override
