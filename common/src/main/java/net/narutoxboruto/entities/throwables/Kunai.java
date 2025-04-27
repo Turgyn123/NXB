@@ -2,6 +2,7 @@ package net.narutoxboruto.entities.throwables;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.narutoxboruto.entities.ModEntities;
@@ -16,9 +17,7 @@ public class Kunai extends AbstractThrowableWeapon {
         super(ModEntities.KUNAI.get(), world, shooter);
     }
 
-    protected ItemStack getDefaultPickupItem() {
-        return getPickupItem();
-    }
+    protected ItemStack getDefaultItem() {return new ItemStack(ModItems.KUNAI.get());}
 
     @Override
     public double getBaseDamage() {

@@ -18,6 +18,7 @@ public abstract class AbstractThrowableWeapon extends AbstractArrow {
 
     public AbstractThrowableWeapon(EntityType<? extends AbstractThrowableWeapon> type, Level world, LivingEntity shooter) {
         super(type, world);
+        this.setOwner(shooter);
     }
 
 

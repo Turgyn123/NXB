@@ -5,10 +5,10 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
-    "MixinPlayerModel"
+
   ],
   "mixins": [
-    "MixinPlayerModel"
+
   ],
   "injectors": {
     "defaultRequire": 1
