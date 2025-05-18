@@ -22,6 +22,6 @@ public final class Main
         ModTab.register();
 
         // Register the Entities
-         ModEntities.register();
+        ModEntities.register();
     }
 }

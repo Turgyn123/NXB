@@ -53,9 +53,15 @@ public class ThrowableWeaponItem extends Item implements PreventSlow {
     }
 
     public void throwWeapon(Level world, LivingEntity shooter, ItemStack stack, float power, float angleOffset) {
+
         AbstractThrowableWeapon proj = getProjectile(world, shooter, stack);
+        proj.setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
         proj.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot(), angleOffset, power * 3f, 1f);
-        if (power >= 1f) proj.setCritArrow(true);
+
+        if (power >= 1f) {
+            proj.setCritArrow(true);
+        }
+
         world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS,
                 1f, 1f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + power * 0.5f);
         //shooter.getCooldowns().addCooldown(this, 2);
