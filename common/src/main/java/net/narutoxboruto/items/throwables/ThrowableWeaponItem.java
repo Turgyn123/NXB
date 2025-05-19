@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.narutoxboruto.entities.throwables.AbstractThrowableWeapon;
+import net.narutoxboruto.entities.throwables.ExplosiveKunai;
 import net.narutoxboruto.entities.throwables.Kunai;
 import net.narutoxboruto.items.PreventSlow;
 
@@ -39,15 +40,9 @@ public class ThrowableWeaponItem extends Item implements PreventSlow {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!world.isClientSide) {
-            if (this.name.equals("kunai")) {
-                // immediate throw on right-click for kunai
                 throwWeapon(world, player, stack, 1.0f, 0f);
                 if (!player.getAbilities().instabuild) stack.shrink(1);
                 player.awardStat(Stats.ITEM_USED.get(this));
-            } else {
-                // start charging for other throwable weapons
-                player.startUsingItem(hand);
-            }
         }
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
     }
@@ -74,7 +69,7 @@ public class ThrowableWeaponItem extends Item implements PreventSlow {
         //    case "fuma_shuriken" -> new ThrownFumaShuriken(world, shooter, stack);
         //    case "senbon" -> new Senbon(world, shooter);
         //    case "poisoned_senbon" -> new PoisonedSenbon(world, shooter);
-        //    case "explosive_kunai" -> new ExplosiveKunai(world, shooter);
+            case "explosive_kunai" -> new ExplosiveKunai(world, shooter);
             default -> new Kunai(world, shooter);
         };
     }

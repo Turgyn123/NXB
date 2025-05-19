@@ -18,6 +18,7 @@ public class ModTab
     // Define the items that will appear in the custom CreativeModeTab.
     private static final CreativeModeTab.DisplayItemsGenerator MAIN_TAB_ITEMS = (params, output) -> {
         output.accept(ModItems.KUNAI.get());
+        output.accept(ModItems.EXPLOSIVE_KUNAI.get());
     };
 
     // Register a new CreativeModeTab with the unique name "main_tab".

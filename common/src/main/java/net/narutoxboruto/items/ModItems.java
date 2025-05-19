@@ -21,9 +21,13 @@ public class ModItems
                     .stacksTo(64)   // Stack size to 64
                     .rarity(Rarity.COMMON));    // Item rarity
 
-    // Item declarations
+    // Item Projectiles
     public static final RegistrySupplier<Item> KUNAI = MOD_ITEMS.register("kunai", () ->
-            new ThrowableWeaponItem(new Item.Properties().stacksTo(16), "kunai")
+            new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "kunai")
+    );
+
+    public static final RegistrySupplier<Item> EXPLOSIVE_KUNAI = MOD_ITEMS.register("explosive_kunai", () ->
+            new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "explosive_kunai")
     );
 
     // Register method to initialize items
