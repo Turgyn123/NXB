@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.narutoxboruto.entities.throwables.AbstractThrowableWeapon;
+import net.narutoxboruto.entities.throwables.ExplosiveKunai;
 import net.narutoxboruto.entities.throwables.Kunai;
 import net.narutoxboruto.items.PreventSlow;
 
@@ -39,23 +40,23 @@ public class ThrowableWeaponItem extends Item implements PreventSlow {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!world.isClientSide) {
-            if (this.name.equals("kunai")) {
-                // immediate throw on right-click for kunai
                 throwWeapon(world, player, stack, 1.0f, 0f);
                 if (!player.getAbilities().instabuild) stack.shrink(1);
                 player.awardStat(Stats.ITEM_USED.get(this));
-            } else {
-                // start charging for other throwable weapons
-                player.startUsingItem(hand);
-            }
         }
         return InteractionResultHolder.sidedSuccess(stack, world.isClientSide);
     }
 
     public void throwWeapon(Level world, LivingEntity shooter, ItemStack stack, float power, float angleOffset) {
+
         AbstractThrowableWeapon proj = getProjectile(world, shooter, stack);
+        proj.setPos(shooter.getX(), shooter.getEyeY() - 0.1, shooter.getZ());
         proj.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot(), angleOffset, power * 3f, 1f);
-        if (power >= 1f) proj.setCritArrow(true);
+
+        if (power >= 1f) {
+            proj.setCritArrow(true);
+        }
+
         world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS,
                 1f, 1f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + power * 0.5f);
         //shooter.getCooldowns().addCooldown(this, 2);
@@ -68,7 +69,7 @@ public class ThrowableWeaponItem extends Item implements PreventSlow {
         //    case "fuma_shuriken" -> new ThrownFumaShuriken(world, shooter, stack);
         //    case "senbon" -> new Senbon(world, shooter);
         //    case "poisoned_senbon" -> new PoisonedSenbon(world, shooter);
-        //    case "explosive_kunai" -> new ExplosiveKunai(world, shooter);
+            case "explosive_kunai" -> new ExplosiveKunai(world, shooter);
             default -> new Kunai(world, shooter);
         };
     }

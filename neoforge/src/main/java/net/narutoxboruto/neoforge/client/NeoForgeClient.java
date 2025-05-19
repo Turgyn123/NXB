@@ -16,6 +16,7 @@ public class NeoForgeClient {
         // Register the renderer for the Kunai entity
         event.enqueueWork(() -> {
             EntityRenderers.register(ModEntities.KUNAI.get(), ThrowableWeaponRenderer::new);
+            EntityRenderers.register(ModEntities.EXPLOSIVE_KUNAI.get(), ThrowableWeaponRenderer::new);
         });
     }
 }

@@ -10,5 +10,6 @@ public final class FabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         // Entity's
         EntityRendererRegistry.register(ModEntities.KUNAI, ThrowableWeaponRenderer::new);
+        EntityRendererRegistry.register(ModEntities.EXPLOSIVE_KUNAI, ThrowableWeaponRenderer::new);
     }
 }

@@ -16,6 +16,10 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<Kunai>> KUNAI = registerEntity("kunai", Kunai::new, MobCategory.MISC,
             0.5F, 0.5F);
 
+    public static final RegistrySupplier<EntityType<Kunai>> EXPLOSIVE_KUNAI = registerEntity("explosive_kunai", Kunai::new, MobCategory.MISC,
+            0.5F, 0.5F);
+
+
 
 
     public static <T extends Entity> RegistrySupplier<EntityType<T>> registerEntity(String name, EntityType.EntityFactory<T> pFactory, MobCategory pCategory, float width, float height) {
