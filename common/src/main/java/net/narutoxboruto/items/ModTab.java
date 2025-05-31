@@ -19,6 +19,9 @@ public class ModTab
     private static final CreativeModeTab.DisplayItemsGenerator MAIN_TAB_ITEMS = (params, output) -> {
         output.accept(ModItems.KUNAI.get());
         output.accept(ModItems.EXPLOSIVE_KUNAI.get());
+        output.accept(ModItems.POISON_SENBON.get());
+        output.accept(ModItems.SENBON.get());
+        output.accept(ModItems.SHURIKEN.get());
     };
 
     // Register a new CreativeModeTab with the unique name "main_tab".

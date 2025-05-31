@@ -16,19 +16,21 @@ public class ModItems
     public static final DeferredRegister<Item> MOD_ITEMS = DeferredRegister.create(Main.MOD_ID, Registries.ITEM);
 
     // Supplier for generic items
-    private static final Supplier<Item> GENERIC_ITEMS_SUPPLIER =
-            () -> new Item(new Item.Properties()
-                    .stacksTo(64)   // Stack size to 64
-                    .rarity(Rarity.COMMON));    // Item rarity
+    private static final Supplier<Item> GENERIC_ITEMS_SUPPLIER = () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 
     // Item Projectiles
-    public static final RegistrySupplier<Item> KUNAI = MOD_ITEMS.register("kunai", () ->
-            new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "kunai")
-    );
+    public static final RegistrySupplier<Item> KUNAI = MOD_ITEMS.register("kunai", () -> new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "kunai"));
 
-    public static final RegistrySupplier<Item> EXPLOSIVE_KUNAI = MOD_ITEMS.register("explosive_kunai", () ->
-            new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "explosive_kunai")
-    );
+    public static final RegistrySupplier<Item> EXPLOSIVE_KUNAI = MOD_ITEMS.register("explosive_kunai", () -> new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "explosive_kunai"));
+
+    public static final RegistrySupplier<Item> POISON_SENBON = MOD_ITEMS.register("poison_senbon", () -> new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "poison_senbon"));
+
+    public static final RegistrySupplier<Item> SENBON = MOD_ITEMS.register("senbon", () -> new ThrowableWeaponItem(new Item.Properties().stacksTo(64), "senbon"));
+
+    public static final RegistrySupplier<Item> SHURIKEN = MOD_ITEMS.register("shuriken", () -> new ThrowableWeaponItem(new Item.Properties().stacksTo(64),"shuriken"));
+
+
+
 
     // Register method to initialize items
     public static void register() { MOD_ITEMS.register(); }
