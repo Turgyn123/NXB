@@ -7,7 +7,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.narutoxboruto.Main;
-import net.narutoxboruto.entities.throwables.Kunai;
+import net.narutoxboruto.entities.throwables.*;
 
 public class ModEntities {
 
@@ -16,7 +16,16 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<Kunai>> KUNAI = registerEntity("kunai", Kunai::new, MobCategory.MISC,
             0.5F, 0.5F);
 
-    public static final RegistrySupplier<EntityType<Kunai>> EXPLOSIVE_KUNAI = registerEntity("explosive_kunai", Kunai::new, MobCategory.MISC,
+    public static final RegistrySupplier<EntityType<ExplosiveKunai>> EXPLOSIVE_KUNAI = registerEntity("explosive_kunai", ExplosiveKunai::new, MobCategory.MISC,
+            0.5F, 0.5F);
+
+    public static final RegistrySupplier<EntityType<PoisonSenbon>> POISON_SENBON = registerEntity("poison_senbon", PoisonSenbon::new, MobCategory.MISC,
+            0.5F, 0.5F);
+
+    public static final RegistrySupplier<EntityType<Senbon>> SENBON = registerEntity("senbon", Senbon::new, MobCategory.MISC,
+            0.5F, 0.5F);
+
+    public static final RegistrySupplier<EntityType<Shuriken>> SHURIKEN = registerEntity("shuriken", Shuriken::new, MobCategory.MISC,
             0.5F, 0.5F);
 
 

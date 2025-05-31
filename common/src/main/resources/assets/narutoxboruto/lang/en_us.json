@@ -1,6 +1,9 @@
 {
-  "itemGroup.narutoxboruto.main_tab": "Items",
+  "itemGroup.narutoxboruto.main_tab": "Throwables",
 
   "item.narutoxboruto.kunai": "Kunai",
-  "item.narutoxboruto.explosive_kunai": "Explosive Kunai"
+  "item.narutoxboruto.explosive_kunai": "Explosive Kunai",
+  "item.narutoxboruto.poison_senbon": "Poison Senbon",
+  "item.narutoxboruto.senbon": "Senbon",
+  "item.narutoxboruto.shuriken": "Shuriken"
 }

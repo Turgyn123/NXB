@@ -1,6 +1,7 @@
 package net.narutoxboruto.entities.throwables;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -85,9 +86,9 @@ public abstract class AbstractThrowableWeapon extends AbstractArrow {
 
     @Override
     protected void onHitEntity(EntityHitResult result) {
-        //  if (this.getOwner() instanceof ServerPlayer serverPlayer) {
+          if (this.getOwner() instanceof ServerPlayer serverPlayer) {
             //      serverPlayer.getCapability(StatCapabilityProvider.SHURIKENJUTSU).ifPresent(cap -> cap.incrementValue(1, serverPlayer));
-            //  }
+              }
         super.onHitEntity(result);
     }
 }

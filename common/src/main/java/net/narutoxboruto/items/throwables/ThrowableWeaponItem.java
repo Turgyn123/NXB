@@ -12,9 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import net.narutoxboruto.entities.throwables.AbstractThrowableWeapon;
-import net.narutoxboruto.entities.throwables.ExplosiveKunai;
-import net.narutoxboruto.entities.throwables.Kunai;
+import net.narutoxboruto.entities.throwables.*;
 import net.narutoxboruto.items.PreventSlow;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -65,10 +63,10 @@ public class ThrowableWeaponItem extends Item implements PreventSlow {
 
     public AbstractThrowableWeapon getProjectile(Level world, LivingEntity shooter, ItemStack stack) {
         return switch (name) {
-        //    case "shuriken" -> new Shuriken(world, shooter);
+            case "shuriken" -> new Shuriken(world, shooter);
         //    case "fuma_shuriken" -> new ThrownFumaShuriken(world, shooter, stack);
-        //    case "senbon" -> new Senbon(world, shooter);
-        //    case "poisoned_senbon" -> new PoisonedSenbon(world, shooter);
+            case "senbon" -> new Senbon(world, shooter);
+            case "poison_senbon" -> new PoisonSenbon(world, shooter);
             case "explosive_kunai" -> new ExplosiveKunai(world, shooter);
             default -> new Kunai(world, shooter);
         };
