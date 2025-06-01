@@ -57,14 +57,17 @@ public class ThrowableWeaponItem extends Item implements PreventSlow {
 
         world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS,
                 1f, 1f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + power * 0.5f);
-        //shooter.getCooldowns().addCooldown(this, 2);
         world.addFreshEntity(proj);
+
+        if (shooter instanceof Player player) {
+            player.getCooldowns().addCooldown(this, 2);
+        }
     }
 
     public AbstractThrowableWeapon getProjectile(Level world, LivingEntity shooter, ItemStack stack) {
         return switch (name) {
             case "shuriken" -> new Shuriken(world, shooter);
-        //    case "fuma_shuriken" -> new ThrownFumaShuriken(world, shooter, stack);
+            case "fuma_shuriken" -> new ThrownFumaShuriken(world, shooter, stack);
             case "senbon" -> new Senbon(world, shooter);
             case "poison_senbon" -> new PoisonSenbon(world, shooter);
             case "explosive_kunai" -> new ExplosiveKunai(world, shooter);

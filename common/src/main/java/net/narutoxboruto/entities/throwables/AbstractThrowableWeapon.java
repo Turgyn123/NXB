@@ -65,9 +65,12 @@ public abstract class AbstractThrowableWeapon extends AbstractArrow {
         return true;
     }
 
-    public float getFumaSpin(float partialTicks) {
+    // to let the fuma keep spinning
+    public float getFumaSpin(float pPartialTicks){
         if (!inGround && fumaSpin()) {
-            this.rotation = (this.getAge() + partialTicks) / 3f;
+            this.rotation = (this.getAge() + pPartialTicks)/3;
+        }
+        if (fumaSpin()) {
             this.inGround = false;
         }
         return this.rotation;
@@ -78,10 +81,7 @@ public abstract class AbstractThrowableWeapon extends AbstractArrow {
     }
 
     public float getSpin(float partialTicks) {
-        if (!inGround && shouldSpin()) {
-            this.rotation = (this.getAge() + partialTicks) / 3f;
-        }
-        return this.rotation;
+        return 0;
     }
 
     @Override
@@ -90,6 +90,9 @@ public abstract class AbstractThrowableWeapon extends AbstractArrow {
             //      serverPlayer.getCapability(StatCapabilityProvider.SHURIKENJUTSU).ifPresent(cap -> cap.incrementValue(1, serverPlayer));
               }
         super.onHitEntity(result);
+    }
+
+    protected void defineSynchedData() {
     }
 }
 

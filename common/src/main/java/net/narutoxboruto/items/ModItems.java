@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.narutoxboruto.Main;
+import net.narutoxboruto.items.throwables.FumaShurikenItem;
 import net.narutoxboruto.items.throwables.ThrowableWeaponItem;
 
 import java.util.function.Supplier;
@@ -29,6 +30,7 @@ public class ModItems
 
     public static final RegistrySupplier<Item> SHURIKEN = MOD_ITEMS.register("shuriken", () -> new ThrowableWeaponItem(new Item.Properties().stacksTo(64),"shuriken"));
 
+    public static final RegistrySupplier<Item> FUMA_SHURIKEN = MOD_ITEMS.register("fuma_shuriken", () -> new FumaShurikenItem(new Item.Properties().stacksTo(1),"fuma_shuriken"));
 
 
 

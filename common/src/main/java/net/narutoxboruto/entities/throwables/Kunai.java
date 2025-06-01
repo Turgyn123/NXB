@@ -4,11 +4,13 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.narutoxboruto.entities.ModEntities;
 import net.narutoxboruto.items.ModItems;
 
 public class Kunai extends AbstractThrowableWeapon {
+
     public Kunai(EntityType<? extends AbstractThrowableWeapon> type, Level world) {
         super(type, world);
     }
