@@ -28,6 +28,8 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<Shuriken>> SHURIKEN = registerEntity("shuriken", Shuriken::new, MobCategory.MISC,
             0.5F, 0.5F);
 
+    public static final RegistrySupplier<EntityType<ThrownFumaShuriken>> FUMA_SHURIKEN = registerEntity("fuma_shuriken", ThrownFumaShuriken::new, MobCategory.MISC,
+            0.5F, 0.5F);
 
 
 

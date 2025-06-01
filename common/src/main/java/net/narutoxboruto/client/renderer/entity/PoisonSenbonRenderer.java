@@ -5,9 +5,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.narutoxboruto.entities.throwables.AbstractThrowableWeapon;
-import net.narutoxboruto.entities.throwables.Senbon;
 import net.narutoxboruto.items.ModItems;
-import org.joml.AxisAngle4f;
 import org.joml.Quaternionf;
 
 public class PoisonSenbonRenderer <T extends AbstractThrowableWeapon> extends ThrowableWeaponRenderer<T> {

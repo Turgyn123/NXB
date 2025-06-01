@@ -22,6 +22,7 @@ public class ModTab
         output.accept(ModItems.POISON_SENBON.get());
         output.accept(ModItems.SENBON.get());
         output.accept(ModItems.SHURIKEN.get());
+        output.accept(ModItems.FUMA_SHURIKEN.get());
     };
 
     // Register a new CreativeModeTab with the unique name "main_tab".
