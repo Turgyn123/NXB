@@ -3,6 +3,7 @@ package net.narutoxboruto;
 import net.narutoxboruto.entities.ModEntities;
 import net.narutoxboruto.items.ModItems;
 import net.narutoxboruto.items.ModTab;
+import net.narutoxboruto.networking.ModPacketHandler;
 
 public final class Main
 {
@@ -23,5 +24,8 @@ public final class Main
 
         // Register the Entities
         ModEntities.register();
+
+        // Register the packet handler for networking.
+        ModPacketHandler.register();
     }
 }
