@@ -12,6 +12,8 @@ public class Chakra {
         return value;
     }
 
+    SyncChakra packet = new SyncChakra(value);
+
     public void setValue(int value) {
         this.value = value;
     }
@@ -29,7 +31,7 @@ public class Chakra {
     }
 
     public void SyncValue(ServerPlayer serverPlayer) {
-        ModPacketHandler.sendToPlayer(new SyncChakra(getValue()), serverPlayer);
+        ModPacketHandler.sendToPlayer(packet, serverPlayer);
     }
 
     public void reset(int maxChakra, ServerPlayer serverPlayer) {

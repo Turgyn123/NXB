@@ -1,30 +1,41 @@
 package net.narutoxboruto.networking.info;
 
-import dev.architectury.networking.NetworkManager;
-import net.minecraft.network.FriendlyByteBuf;
-import net.narutoxboruto.client.PlayerData;
 
-import java.util.function.Supplier;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceLocation;
 
-public class SyncChakra {
+
+public class SyncChakra implements CustomPacketPayload {
     private final int chakra;
 
     public SyncChakra(int chakra) {
         this.chakra = chakra;
     }
 
-    public SyncChakra(FriendlyByteBuf buf) {
-        this.chakra = buf.readInt();
+    public int getChakra() {
+        return chakra;
     }
 
-    public void toBytes(FriendlyByteBuf buf) {
-        buf.writeInt(chakra);
-    }
+    public static final CustomPacketPayload.Type<SyncChakra> TYPE = new CustomPacketPayload.Type<>( ResourceLocation.fromNamespaceAndPath("mymod", "sync_chakra"));
 
-    public void handle(Supplier<NetworkManager.PacketContext> supplier) {
-       NetworkManager.PacketContext context = supplier.get();
-       context.queue(() -> {
-           PlayerData.setChakra(chakra);
-       });
+    // StreamCodec for encoding and decoding
+    public static final StreamCodec<RegistryFriendlyByteBuf, SyncChakra> CODEC = new StreamCodec<>() {
+        @Override
+        public void encode(RegistryFriendlyByteBuf buf, SyncChakra payload) {
+            buf.writeInt(payload.chakra);
+        }
+
+        @Override
+        public SyncChakra decode(RegistryFriendlyByteBuf buf) {
+            return new SyncChakra(buf.readInt());
+        }
+    };
+
+    @Override
+    public Type<? extends CustomPacketPayload> type() {
+        return TYPE;
     }
 }
+

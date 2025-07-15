@@ -3,7 +3,7 @@ package net.narutoxboruto.fabric;
 import net.fabricmc.api.ModInitializer;
 
 import net.narutoxboruto.Main;
-import net.narutoxboruto.fabric.client.FabricClient;
+import net.narutoxboruto.networking.ModPacketHandler;
 
 public final class FabricMain implements ModInitializer {
     @Override
@@ -14,5 +14,8 @@ public final class FabricMain implements ModInitializer {
 
         // Run our common setup.
         Main.init();
+
+        // Register the packet types for networking.
+        ModPacketHandler.registerPayloadTypes();
     }
 }

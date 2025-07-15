@@ -1,37 +1,53 @@
 package net.narutoxboruto.networking;
 
-import dev.architectury.networking.NetworkChannel;
-import net.minecraft.resources.ResourceLocation;
+
+import dev.architectury.networking.NetworkManager;
 import net.minecraft.server.level.ServerPlayer;
-import net.narutoxboruto.Main;
+import net.narutoxboruto.client.PlayerData;
 import net.narutoxboruto.networking.info.SyncChakra;
 import net.narutoxboruto.networking.info.SyncMaxChakra;
 
 public class ModPacketHandler {
 
-    @SuppressWarnings("removal")
-    public static final NetworkChannel INSTANCE = NetworkChannel.create(ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "message"));
 
-
-    private static int packetId = 0;
-
-    private static int id() {
-        return packetId++;
-    }
-    @SuppressWarnings("removal")
-    public static void register() {
-
-        INSTANCE.register(SyncChakra.class, SyncChakra::toBytes, SyncChakra::new, SyncChakra::handle);
-        INSTANCE.register(SyncMaxChakra.class, SyncMaxChakra::toBytes, SyncMaxChakra::new, SyncMaxChakra::handle);
-
-    }
-    @SuppressWarnings("removal")
-    public static <MSG> void sendToServer(MSG message) {
-        INSTANCE.sendToServer(message);
+    public static void registerPayloadTypes() {
+        // This should be called only once, early — only on NeoForge (during payload registration event)
+        NetworkManager.registerS2CPayloadType(SyncChakra.TYPE, SyncChakra.CODEC);
+        NetworkManager.registerS2CPayloadType(SyncMaxChakra.TYPE, SyncMaxChakra.CODEC);
     }
 
-    @SuppressWarnings("removal")
-    public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
-        INSTANCE.sendToPlayer(player, message);
+    private static boolean clientReceiversRegistered = false;
+
+    public static void registerClientReceivers() {
+        if (clientReceiversRegistered) {
+            System.out.println("[ModPacketHandler] Client receivers already registered, skipping.");
+            Thread.dumpStack();
+            return;
+        }
+        clientReceiversRegistered = true;
+        System.out.println("[ModPacketHandler] Registering client receivers.. Called from thread: " + Thread.currentThread().getName());
+        Thread.dumpStack();
+
+        NetworkManager.registerReceiver(NetworkManager.Side.S2C, SyncChakra.TYPE, SyncChakra.CODEC,
+                (payload, context) -> context.queue(() -> PlayerData.setChakra(payload.getChakra())));
+
+        NetworkManager.registerReceiver(NetworkManager.Side.S2C, SyncMaxChakra.TYPE, SyncMaxChakra.CODEC,
+                (payload, context) -> context.queue(() -> PlayerData.setMaxChakra(payload.getMaxChakra())));
+    }
+
+    public static void sendToPlayer(SyncChakra packet, ServerPlayer player) {
+        NetworkManager.sendToPlayer(player, packet);
+    }
+
+    public static void sendToPlayer(SyncMaxChakra packet, ServerPlayer player) {
+        NetworkManager.sendToPlayer(player, packet);
+    }
+
+    public static void sendToServer(SyncChakra packet) {
+        NetworkManager.sendToServer(packet);
+    }
+
+    public static void sendToServer(SyncMaxChakra packet) {
+        NetworkManager.sendToServer(packet);
     }
 }

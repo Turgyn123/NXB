@@ -7,6 +7,7 @@ import net.narutoxboruto.networking.info.SyncMaxChakra;
 
 public class MaxChakra {
     private int value = 10;
+    SyncMaxChakra packet = new SyncMaxChakra(value);
 
     public int getValue() {
         return value;
@@ -23,7 +24,7 @@ public class MaxChakra {
     }
 
     public void syncValue(ServerPlayer serverPlayer) {
-        ModPacketHandler.sendToPlayer(new SyncMaxChakra(getValue()), serverPlayer);
+        ModPacketHandler.sendToPlayer(packet, serverPlayer);
     }
 
     public void copyFrom(MaxChakra source, ServerPlayer serverPlayer) {

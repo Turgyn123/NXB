@@ -5,8 +5,7 @@ import net.narutoxboruto.items.ModItems;
 import net.narutoxboruto.items.ModTab;
 import net.narutoxboruto.networking.ModPacketHandler;
 
-public final class Main
-{
+public final class Main {
     // The unique Mod ID, used for resource locations and registry keys.
     public static final String MOD_ID = "narutoxboruto";
 
@@ -25,7 +24,5 @@ public final class Main
         // Register the Entities
         ModEntities.register();
 
-        // Register the packet handler for networking.
-        ModPacketHandler.register();
     }
 }
